@@ -27,5 +27,9 @@ app.use(express.json());
 // Your routes
 const mainRouter = require("./routes/index.js");
 app.use("/api/v1", mainRouter);
+app.get("/health", (req, res) => {
+  res.send("Route is Healthy"); }
+);
+
 
 app.listen(3000, () => console.log("Server running on port 3000"));
