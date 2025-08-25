@@ -1,9 +1,11 @@
 const express = require("express");
 const zod = require("zod");
 const jwt = require("jsonwebtoken");
+const JWT_SECRET = require("../config").JWT_SECRET;
+
 const { user } = require("../db");
 const {account} = require("../db");
-const JWT_SECRET = require("../config").JWT_SECRET;
+
 const router = express.Router();
 const { authMiddleware }= require("../middleware");
 

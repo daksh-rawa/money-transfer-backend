@@ -1,12 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const dotenv = require('./config');
+//dotenv.config();  - not required when installing the dotenv npm package, you can save it as a dev dependency like this npm install dotenv --save-dev
 
 const whitelist = [
   "http://localhost:5173",
   "https://staging.yoursite.com",
   "https://yourproductiondomain.com"
 ];
+
+// server.js
+const port = process.env.PORT;
+// console.log(`Your port is ${port}`);
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -32,4 +38,4 @@ app.get("/health", (req, res) => {
 );
 
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+app.listen(port, () => console.log(`Server running on port ${port}`));
