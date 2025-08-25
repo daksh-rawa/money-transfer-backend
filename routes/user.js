@@ -61,6 +61,9 @@ router.post("/signup", async (req, res) => {
         userId
     },JWT_SECRET);
 
+
+
+    
     res.json({
         msg: "User created successfully",
         token: token

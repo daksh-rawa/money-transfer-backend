@@ -11,6 +11,9 @@ module.exports = {
 
 
 
+
+
+
 // config.js 
 // can add for other env variables here without exposing them directly
 // if (result.error) {
