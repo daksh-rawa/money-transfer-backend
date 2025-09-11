@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const dotenv = require('./config');
+require("dotenv").config();
 //dotenv.config();  - not required when installing the dotenv npm package, you can save it as a dev dependency like this npm install dotenv --save-dev
 
 const whitelist = [
@@ -11,7 +11,7 @@ const whitelist = [
 ];
 
 // server.js
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 // console.log(`Your port is ${port}`);
 
 const corsOptions = {
