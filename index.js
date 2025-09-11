@@ -7,7 +7,7 @@ require("dotenv").config();
 const whitelist = [
   "http://localhost:5173",
   "https://staging.yoursite.com",
-  "https://yourproductiondomain.com"
+  "https://money-transfer-here.netlify.app"
 ];
 
 // server.js
