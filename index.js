@@ -4,31 +4,19 @@ const app = express();
 require("dotenv").config();
 //dotenv.config();  - not required when installing the dotenv npm package, you can save it as a dev dependency like this npm install dotenv --save-dev
 
-const whitelist = [
-  "http://localhost:5173",
-  "https://staging.yoursite.com",
-  "https://money-transfer-here.netlify.app",
-  "https://money-transfer-frontendv1.onrender.com/"
-];
+// Allow all origins by reflecting the request origin
 
 // server.js
 const port = process.env.PORT || 3000;
 // console.log(`Your port is ${port}`);
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin) {
-      callback(null, true); // allow non-browser requests
-    } else if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true, // important to allow cookies/auth
+  origin: true, // reflect request origin
+  credentials: true
 };
 
 app.use(cors(corsOptions)); // <-- Use only this, remove other cors middleware calls
+app.options("*", cors(corsOptions)); // enable preflight for all routes
 app.use(express.json());
 
 // Your routes
